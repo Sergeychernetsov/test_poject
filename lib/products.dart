@@ -13,7 +13,7 @@ class Product {
 }
 
 
-  final products = [
+  final clothes = [
     Product(
       title: 'Футболка',
       image: 'assets/images/футболка.jpg',
@@ -30,5 +30,3 @@ class Product {
       price: '2500',
     ),
   ];
-
-  UnmodifiableListView<Product> get items => UnmodifiableListView(products);

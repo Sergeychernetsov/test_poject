@@ -9,19 +9,24 @@ class ProductsListScreen extends StatelessWidget {
   const ProductsListScreen({super.key});
 
 
-
-  Widget createRow(Product products){
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Container(
-            padding: const EdgeInsets.all(10.0),
-            // child: Product(title: '', image: '', price: ''),
-          ),
-        ),
-    ]);
+  Widget createRow(Product clothes) {
+    return Container(
+        padding: const EdgeInsets.all(30),
+        color: Colors.white10,
+        child:Row(
+          textDirection: TextDirection.ltr,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          verticalDirection: VerticalDirection.down,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(clothes.title,
+                textDirection: TextDirection.ltr),
+            Text(clothes.image,
+                textDirection: TextDirection.ltr),
+            Text(clothes.price,
+                textDirection: TextDirection.ltr),
+          ],
+    ),);
   }
 
   @override
@@ -32,47 +37,15 @@ class ProductsListScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black12,
       ),
-        body: createRow(products as Product
-        )
-    );}
-}
+      body: Row(
+        children: [
+          createRow(clothes[0])
+        ],
+      )
+      );
+  }
 
 
-
-
-
-
-
-
-
-
-//       SingleChildScrollView(
-//         child: Column(
-//           children: <Widget>[
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceAround,
-//               children: <Widget>[
-//                 Expanded(
-//                   flex: 1,
-//                   child: Container(
-//                     padding: const EdgeInsets.all(10.0),
-//                     child: const Text('1. Футболка'),
-//                   ),
-//                 ),
-//                 Expanded(
-//                   flex: 3,
-//                   child: SizedBox(
-//                     width: 500,
-//                     height: 200,
-//                     child: Image.asset("assets/images/футболка.jpg"),
-//                   ),),
-//
-//                 const Expanded(
-//                   flex: 1,
-//                   child: Text('Цена: 2.000'),
-//                 ),
-//               ],
-//             ),
 //             Row(
 //               mainAxisAlignment: MainAxisAlignment.spaceAround,
 //               children: <Widget>[
@@ -151,7 +124,4 @@ class ProductsListScreen extends StatelessWidget {
 //     );
 //   }
 // }
-//
-//
-//
-
+}
