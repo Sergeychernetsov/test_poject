@@ -1,8 +1,10 @@
-import 'dart:collection';
+
+import 'package:flutter/cupertino.dart';
+
 
 class Product {
   final String title;
-  final String image;
+  final Image image;
   final String price;
 
   Product({
@@ -16,17 +18,17 @@ class Product {
   final clothes = [
     Product(
       title: 'Футболка',
-      image: 'assets/images/футболка.jpg',
+      image: Image.asset('assets/images/футболка.jpg',),
       price: '2000',
     ),
     Product(
       title: 'Ветровка',
-      image: 'assets/images/ветровка.jpg',
+      image: Image.asset('assets/images/ветровка.jpg',),
       price: '3000',
     ),
     Product(
       title: 'Рюкзак',
-      image: 'assets/images/рюкзак.jpg',
+      image: Image.asset('assets/images/рюкзак.jpg',),
       price: '2500',
     ),
   ];

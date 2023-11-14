@@ -21,8 +21,10 @@ class ProductsListScreen extends StatelessWidget {
           children: [
             Text(clothes.title,
                 textDirection: TextDirection.ltr),
-            Text(clothes.image,
-                textDirection: TextDirection.ltr),
+            SizedBox(
+              width: 500,
+              height: 200,
+              child: clothes.image,),
             Text(clothes.price,
                 textDirection: TextDirection.ltr),
           ],
@@ -37,15 +39,28 @@ class ProductsListScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black12,
       ),
-      body: Row(
-        children: [
-          createRow(clothes[0])
-        ],
+      body: ListView.builder(itemBuilder: (BuildContext context, int index) { 
+        return Column(
+          children: [
+            createRow(clothes[index])
+          ],
+        );
+      },
       )
       );
   }
 
 
+  // Column (
+  // children: [
+  // createRow(clothes[0]),
+  // createRow(clothes[1]),
+  // createRow(clothes[2]),
+  // ],
+  
+  
+  
+  
 //             Row(
 //               mainAxisAlignment: MainAxisAlignment.spaceAround,
 //               children: <Widget>[
