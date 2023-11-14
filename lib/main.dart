@@ -14,7 +14,6 @@ class ProductsListScreen extends StatelessWidget {
         padding: const EdgeInsets.all(30),
         color: Colors.white10,
         child:Row(
-          textDirection: TextDirection.ltr,
           crossAxisAlignment: CrossAxisAlignment.start,
           verticalDirection: VerticalDirection.down,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,7 +38,9 @@ class ProductsListScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.black12,
       ),
-      body: ListView.builder(itemBuilder: (BuildContext context, int index) { 
+      body: ListView.builder(
+        itemCount: clothes.length,
+        itemBuilder: (BuildContext context, int index) {
         return Column(
           children: [
             createRow(clothes[index])
