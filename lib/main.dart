@@ -13,21 +13,43 @@ class ProductsListScreen extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.all(30),
         color: Colors.white10,
-        child:Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          verticalDirection: VerticalDirection.down,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(clothes.title,
-                textDirection: TextDirection.ltr),
-            SizedBox(
-              width: 500,
-              height: 200,
-              child: clothes.image,),
-            Text(clothes.price,
-                textDirection: TextDirection.ltr),
-          ],
+        child:
+        // GestureDetector(
+        //   onTap: () {
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              verticalDirection: VerticalDirection.down,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                TextButton(onPressed: () {}, child: Text(clothes.title),),
+                SizedBox(
+                width: 200,
+                height: 200,
+                child: clothes.image,),
+                Text(clothes.price,),
+                Flexible(
+                  child: Text(clothes.description,)
+                ),
+    ],
     ),);
+  }
+
+  Widget SingleProduct(Product clothes) {
+    return Container(
+      padding: const EdgeInsets.all(30),
+      color: Colors.white70,
+      child: Column(
+        children: [
+          TextButton(onPressed: () {}, child: Text(clothes.title),),
+          SizedBox(
+            width: 200,
+            height: 200,
+            child: clothes.image,
+          ),
+          Text(clothes.description,),
+          Text(clothes.price,),
+      ],),);
+
   }
 
   @override
@@ -37,28 +59,20 @@ class ProductsListScreen extends StatelessWidget {
         title: const Text('Veshalka'),
         centerTitle: true,
         backgroundColor: Colors.black12,
+        leading: IconButton(icon: Icon(Icons.arrow_back_ios_new),
+        onPressed: () {},
+        ),
       ),
-      body: ListView.builder(
-        itemCount: clothes.length,
-        itemBuilder: (BuildContext context, int index) {
-        return Column(
-          children: [
-            createRow(clothes[index])
-          ],
-        );
-      },
-      )
-      );
+      body:
+      Column(
+          children:  [ Expanded(child: ListView.builder(
+                   itemCount: clothes.length,
+                   itemBuilder: (BuildContext context, int index) {
+                     return createRow(clothes[index]);
+          }
+            ),),],),);
   }
 
-
-  // Column (
-  // children: [
-  // createRow(clothes[0]),
-  // createRow(clothes[1]),
-  // createRow(clothes[2]),
-  // ],
-  
   
   
   
