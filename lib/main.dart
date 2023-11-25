@@ -41,7 +41,7 @@ class ProductsListScreen extends StatelessWidget {
         title: const Text('Veshalka'),
         centerTitle: true,
         backgroundColor: Colors.black12,
-        leading: IconButton(icon: Icon(Icons.arrow_back_ios_new),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios_new),
         onPressed: () {},
         ),
       ),
@@ -97,14 +97,15 @@ class ProductsListScreen extends StatelessWidget {
             title: const Text('Veshalka'),
             centerTitle: true,
             backgroundColor: Colors.black12,
-            leading: IconButton(icon: Icon(Icons.arrow_back_ios_new),
+            leading: IconButton(icon: const Icon(Icons.arrow_back_ios_new),
               onPressed: () => Navigator.of(context).pop(),
             ),
           ),
-          body: Column(
-            children: [
-              singleProduct(clothes[1]),
-            ],
+          body:
+            Column(
+              children: [
+                singleProduct(clothes[1]),
+              ],
           ),
       );
     }
