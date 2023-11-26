@@ -56,8 +56,8 @@ class ProductsListScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DetailProduct(createRow(clothes[index])),
-                        ),);
+                            builder: (context) => DetailProduct(product: clothes[index])),
+                        );
                        }
                     );
                    }
@@ -70,43 +70,58 @@ class ProductsListScreen extends StatelessWidget {
 
 }
 
-  class DetailProduct extends StatelessWidget {
-    const DetailProduct(Widget createRow, {super.key});
+  // class DetailProduct extends StatelessWidget {
+  //   const DetailProduct(Widget createRow, {super.key, required Product product});
+  //
+  //
+  //   Widget singleProduct(Product clothes) {
+  //     return Container(
+  //       padding: const EdgeInsets.all(30),
+  //       color: Colors.white70,
+  //       child: Column(
+  //         children: [
+  //           Flexible(child: SizedBox(
+  //             child: clothes.image,
+  //           ),),
+  //           Text(clothes.description,),
+  //           Text(style: const TextStyle(color: Colors.redAccent),
+  //             'Цена:    ${clothes.price}',),
+  //         ],),);
+  //   }
 
+    class DetailProduct extends StatelessWidget {
+      final Product product;
 
-    Widget singleProduct(Product clothes) {
-      return Container(
-        padding: const EdgeInsets.all(30),
-        color: Colors.white70,
-        child: Column(
-          children: [
-            Flexible(child: SizedBox(
-              child: clothes.image,
-            ),),
-            Text(clothes.description,),
-            Text(style: const TextStyle(color: Colors.redAccent),
-              'Цена:    ${clothes.price}',),
-          ],),);
-    }
+    const DetailProduct({
+      required this.product,
+      super.key,});
 
     @override
     Widget build(BuildContext context) {
       return Scaffold(
-          appBar: AppBar(
-            title: const Text('Veshalka'),
-            centerTitle: true,
-            backgroundColor: Colors.black12,
-            leading: IconButton(icon: const Icon(Icons.arrow_back_ios_new),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
+        appBar: AppBar(
+          title: Text(product.title),
+          centerTitle: true,
+          backgroundColor: Colors.black12,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back_ios_new),
+            onPressed: () => Navigator.of(context).pop(),
           ),
-          body:
-            Row(
-              children: [ Expanded(
-                child: singleProduct(clothes[11]),// как вывести на экран товар выбранный на главном экране
-              ),
-              ],
-          ),
+        ),
+        body: Column(
+          children: [
+            Flexible(
+              child:
+                SizedBox(
+                  child: product.image,
+                ),),
+                Text(product.description,),
+                Text(
+                  style: const TextStyle(
+                      color: Colors.redAccent),
+                     'Цена:    ${product.price}',),
+          ],
+        ),
       );
     }
 }
