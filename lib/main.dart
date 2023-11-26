@@ -25,9 +25,6 @@ class ProductsListScreen extends StatelessWidget {
                   height: 200,
                   child: clothes.image,),
                 Text(clothes.price,),
-                // Flexible(
-                //   child: Text(clothes.description,)
-                // ),
     ],
     ),);
   }
@@ -70,24 +67,6 @@ class ProductsListScreen extends StatelessWidget {
 
 }
 
-  // class DetailProduct extends StatelessWidget {
-  //   const DetailProduct(Widget createRow, {super.key, required Product product});
-  //
-  //
-  //   Widget singleProduct(Product clothes) {
-  //     return Container(
-  //       padding: const EdgeInsets.all(30),
-  //       color: Colors.white70,
-  //       child: Column(
-  //         children: [
-  //           Flexible(child: SizedBox(
-  //             child: clothes.image,
-  //           ),),
-  //           Text(clothes.description,),
-  //           Text(style: const TextStyle(color: Colors.redAccent),
-  //             'Цена:    ${clothes.price}',),
-  //         ],),);
-  //   }
 
     class DetailProduct extends StatelessWidget {
       final Product product;
