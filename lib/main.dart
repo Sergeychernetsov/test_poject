@@ -21,9 +21,9 @@ class ProductsListScreen extends StatelessWidget {
               children: [
                 Text(clothes.title),
                 SizedBox(
-                width: 200,
-                height: 200,
-                child: clothes.image,),
+                  width: 200,
+                  height: 200,
+                  child: clothes.image,),
                 Text(clothes.price,),
                 // Flexible(
                 //   child: Text(clothes.description,)
@@ -52,13 +52,13 @@ class ProductsListScreen extends StatelessWidget {
                    itemBuilder: (BuildContext context, int index) {
                      return ListTile(
                        title: createRow(clothes[index]),
-                     onTap: () {
-                      Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                      builder: (context) => DetailProduct(createRow(clothes[index]))),
-                      );
-                     }
+                       onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => DetailProduct(createRow(clothes[index])),
+                        ),);
+                       }
                     );
                    }
                    ),
@@ -67,6 +67,7 @@ class ProductsListScreen extends StatelessWidget {
       ),
     );
   }
+
 }
 
   class DetailProduct extends StatelessWidget {
@@ -77,16 +78,14 @@ class ProductsListScreen extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(30),
         color: Colors.white70,
-        child: Row(
+        child: Column(
           children: [
-            // Text(clothes.title),
             Flexible(child: SizedBox(
-              // width: 200,
-              // height: 200,
               child: clothes.image,
             ),),
             Text(clothes.description,),
-            Text(clothes.price,),
+            Text(style: const TextStyle(color: Colors.redAccent),
+              'Цена:    ${clothes.price}',),
           ],),);
     }
 
@@ -102,9 +101,10 @@ class ProductsListScreen extends StatelessWidget {
             ),
           ),
           body:
-            Column(
-              children: [
-                singleProduct(clothes[1]),
+            Row(
+              children: [ Expanded(
+                child: singleProduct(clothes[11]),// как вывести на экран товар выбранный на главном экране
+              ),
               ],
           ),
       );
