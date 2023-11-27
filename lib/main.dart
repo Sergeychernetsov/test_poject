@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:test_poject/products.dart';
 
+import 'detailproduct.dart';
+
 void main() => runApp(const MaterialApp(
   home: ProductsListScreen(),
 ),);
@@ -30,7 +32,6 @@ class ProductsListScreen extends StatelessWidget {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,10 +39,7 @@ class ProductsListScreen extends StatelessWidget {
         title: const Text('Veshalka'),
         centerTitle: true,
         backgroundColor: Colors.black12,
-        leading: IconButton(icon: const Icon(Icons.arrow_back_ios_new),
-        onPressed: () {},
         ),
-      ),
       body:
       Column(
           children:  [ Expanded(child: ListView.builder(
@@ -64,43 +62,4 @@ class ProductsListScreen extends StatelessWidget {
       ),
     );
   }
-
-}
-
-
-    class DetailProduct extends StatelessWidget {
-      final Product product;
-
-    const DetailProduct({
-      required this.product,
-      super.key,});
-
-    @override
-    Widget build(BuildContext context) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(product.title),
-          centerTitle: true,
-          backgroundColor: Colors.black12,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new),
-            onPressed: () => Navigator.of(context).pop(),
-          ),
-        ),
-        body: Column(
-          children: [
-            Flexible(
-              child:
-                SizedBox(
-                  child: product.image,
-                ),),
-                Text(product.description,),
-                Text(
-                  style: const TextStyle(
-                      color: Colors.redAccent),
-                     'Цена:    ${product.price}',),
-          ],
-        ),
-      );
-    }
 }
