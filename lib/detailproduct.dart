@@ -20,9 +20,16 @@ class DetailProduct extends StatelessWidget {
             SizedBox(
               child: product.image,
             ),),
-          Text(product.description,),
+          Text(
+            product.description,
+            style: const TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w100),
+                softWrap: true),
           Text(
             style: const TextStyle(
+                fontSize: 19.0,
+                fontWeight: FontWeight.w700,
                 color: Colors.redAccent),
             'Цена:    ${product.price}',),
         ],
